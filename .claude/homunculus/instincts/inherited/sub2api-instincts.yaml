@@ -1,0 +1,835 @@
+# Instincts generated from https://github.com/lllyyysss77/sub2api
+# Generated: 2026-06-01T01:41:34.476Z
+# Version: 2.0
+# NOTE: This file supplements (does not replace) any existing curated instincts.
+# High-confidence manually curated instincts should be preserved alongside these.
+
+---
+id: sub2api-commit-conventional
+trigger: "when writing a commit message"
+confidence: 0.85
+domain: git
+source: repo-analysis
+source_repo: https://github.com/lllyyysss77/sub2api
+---
+
+# Sub2api Commit Conventional
+
+## Action
+
+Use conventional commit format with prefixes: fix, feat, refactor, docs, test
+
+## Evidence
+
+- 100 commits analyzed
+- Detected conventional commit pattern
+- Examples: docs: add auth identity payment foundation design spec, fix: harden oidc callback security
+
+---
+id: sub2api-commit-length
+trigger: "when writing a commit message"
+confidence: 0.6
+domain: git
+source: repo-analysis
+source_repo: https://github.com/lllyyysss77/sub2api
+---
+
+# Sub2api Commit Length
+
+## Action
+
+Write moderate-length commit messages (~50 characters)
+
+## Evidence
+
+- Average commit message length: 50 chars
+- Based on 100 commits
+
+---
+id: sub2api-naming-files
+trigger: "when creating a new file"
+confidence: 0.8
+domain: code-style
+source: repo-analysis
+source_repo: https://github.com/lllyyysss77/sub2api
+---
+
+# Sub2api Naming Files
+
+## Action
+
+Use snake_case naming convention
+
+## Evidence
+
+- Analyzed file naming patterns in repository
+- Dominant pattern: snake_case
+
+---
+id: sub2api-export-style
+trigger: "when exporting from a module"
+confidence: 0.7
+domain: code-style
+source: repo-analysis
+source_repo: https://github.com/lllyyysss77/sub2api
+---
+
+# Sub2api Export Style
+
+## Action
+
+Prefer named exports
+
+## Evidence
+
+- Export pattern analysis
+- Dominant style: named
+
+---
+id: sub2api-arch-type-based
+trigger: "when adding new code"
+confidence: 0.8
+domain: architecture
+source: repo-analysis
+source_repo: https://github.com/lllyyysss77/sub2api
+---
+
+# Sub2api Arch Type Based
+
+## Action
+
+Place code in the appropriate type folder (components/, services/, utils/, etc.)
+
+## Evidence
+
+- Type-based module organization detected
+- Folders: 
+
+---
+id: sub2api-test-framework
+trigger: "when writing tests"
+confidence: 0.9
+domain: testing
+source: repo-analysis
+source_repo: https://github.com/lllyyysss77/sub2api
+---
+
+# Sub2api Test Framework
+
+## Action
+
+Use vitest as the test framework
+
+## Evidence
+
+- Test framework detected: vitest
+- File pattern: *.spec.ts
+
+---
+id: sub2api-test-naming
+trigger: "when creating a test file"
+confidence: 0.85
+domain: testing
+source: repo-analysis
+source_repo: https://github.com/lllyyysss77/sub2api
+---
+
+# Sub2api Test Naming
+
+## Action
+
+Name test files using the pattern: *.spec.ts
+
+## Evidence
+
+- File pattern: *.spec.ts
+- Consistent across test files
+
+---
+id: sub2api-test-mocking
+trigger: "when mocking dependencies in tests"
+confidence: 0.75
+domain: testing
+source: repo-analysis
+source_repo: https://github.com/lllyyysss77/sub2api
+---
+
+# Sub2api Test Mocking
+
+## Action
+
+Use vi.mock for mocking
+
+## Evidence
+
+- Mocking pattern detected: vi.mock
+- Consistent across test files
+
+---
+id: sub2api-test-types
+trigger: "when planning tests for a feature"
+confidence: 0.7
+domain: testing
+source: repo-analysis
+source_repo: https://github.com/lllyyysss77/sub2api
+---
+
+# Sub2api Test Types
+
+## Action
+
+Write unit, integration tests to match project standards
+
+## Evidence
+
+- Test types detected: unit, integration
+- Coverage config: no
+
+---
+id: sub2api-workflow-database-migration
+trigger: "when modifying the database schema or adding tables"
+confidence: 0.7
+domain: workflow
+source: repo-analysis
+source_repo: https://github.com/lllyyysss77/sub2api
+---
+
+# Sub2api Workflow Database Migration
+
+## Action
+
+Follow the database-migration workflow:
+1. Create migration file
+2. Update schema definitions
+3. Generate/update types
+
+## Evidence
+
+- Workflow detected from commit patterns
+- Frequency: ~4x per month
+- Files: **/schema.*, migrations/*
+
+---
+id: sub2api-workflow-feature-development
+trigger: "when implementing a new feature"
+confidence: 0.9
+domain: workflow
+source: repo-analysis
+source_repo: https://github.com/lllyyysss77/sub2api
+---
+
+# Sub2api Workflow Feature Development
+
+## Action
+
+Follow the feature-development workflow:
+1. Add feature implementation
+2. Add tests for feature
+3. Update documentation
+
+## Evidence
+
+- Workflow detected from commit patterns
+- Frequency: ~13x per month
+- Files: frontend/src/api/*, frontend/src/api/__tests__/*, frontend/src/api/admin/*
+
+---
+id: sub2api-workflow-add-or-modify-database-table-with-migration
+trigger: "when doing add or modify database table with migration"
+confidence: 0.6
+domain: workflow
+source: repo-analysis
+source_repo: https://github.com/lllyyysss77/sub2api
+---
+
+# Sub2api Workflow Add Or Modify Database Table With Migration
+
+## Action
+
+Follow the add-or-modify-database-table-with-migration workflow:
+1. Edit or add ent/schema/*.go
+2. Run ent codegen to update backend/ent/* (model, query, create, update, etc.)
+3. Add or update backend/migrations/*.sql migration file
+4. Update backend/ent/migrate/schema.go and related runtime files
+5. Update backend/internal/service/* and backend/internal/repository/* as needed
+
+## Evidence
+
+- Workflow detected from commit patterns
+- Frequency: ~2x per month
+- Files: backend/ent/schema/*.go, backend/ent/*, backend/migrations/*.sql
+
+---
+id: sub2api-workflow-add-or-update-api-endpoint
+trigger: "when doing add or update api endpoint"
+confidence: 0.65
+domain: workflow
+source: repo-analysis
+source_repo: https://github.com/lllyyysss77/sub2api
+---
+
+# Sub2api Workflow Add Or Update Api Endpoint
+
+## Action
+
+Follow the add-or-update-api-endpoint workflow:
+1. Add or update backend/internal/handler/* (handler logic)
+2. Update backend/internal/server/routes/*.go to register the route
+3. Edit or add backend/internal/handler/dto/*.go for request/response types
+4. Write or update backend/internal/handler/*_test.go for tests
+
+## Evidence
+
+- Workflow detected from commit patterns
+- Frequency: ~3x per month
+- Files: backend/internal/handler/*.go, backend/internal/handler/dto/*.go, backend/internal/server/routes/*.go
+
+---
+id: sub2api-workflow-feature-development-fullstack
+trigger: "when doing feature development fullstack"
+confidence: 0.7
+domain: workflow
+source: repo-analysis
+source_repo: https://github.com/lllyyysss77/sub2api
+---
+
+# Sub2api Workflow Feature Development Fullstack
+
+## Action
+
+Follow the feature-development-fullstack workflow:
+1. Backend: Implement handler, service, repository logic
+2. Backend: Update or add API endpoints and tests
+3. Frontend: Add or update src/api/*.ts for API calls
+4. Frontend: Implement or update Vue components and views
+5. Frontend: Add or update tests (spec.ts)
+6. Frontend: Update types and i18n as needed
+
+## Evidence
+
+- Workflow detected from commit patterns
+- Frequency: ~4x per month
+- Files: backend/internal/handler/*.go, backend/internal/service/*.go, backend/internal/repository/*.go
+
+---
+id: sub2api-workflow-add-or-update-frontend-ui-flow
+trigger: "when doing add or update frontend ui flow"
+confidence: 0.65
+domain: workflow
+source: repo-analysis
+source_repo: https://github.com/lllyyysss77/sub2api
+---
+
+# Sub2api Workflow Add Or Update Frontend Ui Flow
+
+## Action
+
+Follow the add-or-update-frontend-ui-flow workflow:
+1. Add or update frontend/src/components/**/*.vue
+2. Add or update frontend/src/views/**/*.vue
+3. Update frontend/src/router/index.ts if navigation changes
+4. Update frontend/src/types/*.ts and i18n/locales/*.ts as needed
+5. Write or update frontend/src/components/**/*.spec.ts or frontend/src/views/**/*.spec.ts
+
+## Evidence
+
+- Workflow detected from commit patterns
+- Frequency: ~3x per month
+- Files: frontend/src/components/**/*.vue, frontend/src/views/**/*.vue, frontend/src/components/**/*.spec.ts
+
+---
+id: sub2api-workflow-add-or-update-admin-dashboard-view
+trigger: "when doing add or update admin dashboard view"
+confidence: 0.6
+domain: workflow
+source: repo-analysis
+source_repo: https://github.com/lllyyysss77/sub2api
+---
+
+# Sub2api Workflow Add Or Update Admin Dashboard View
+
+## Action
+
+Follow the add-or-update-admin-dashboard-view workflow:
+1. Add or update frontend/src/views/admin/*.vue
+2. Add or update frontend/src/api/admin/*.ts
+3. Add or update frontend/src/views/admin/__tests__/*.spec.ts
+4. Add or update backend/internal/handler/admin/*.go
+5. Update backend/internal/server/routes/admin.go
+
+## Evidence
+
+- Workflow detected from commit patterns
+- Frequency: ~2x per month
+- Files: frontend/src/views/admin/*.vue, frontend/src/api/admin/*.ts, frontend/src/views/admin/__tests__/*.spec.ts
+
+---
+id: sub2api-workflow-add-or-update-auth-oauth-flow
+trigger: "when doing add or update auth oauth flow"
+confidence: 0.65
+domain: workflow
+source: repo-analysis
+source_repo: https://github.com/lllyyysss77/sub2api
+---
+
+# Sub2api Workflow Add Or Update Auth Oauth Flow
+
+## Action
+
+Follow the add-or-update-auth-oauth-flow workflow:
+1. Update backend/internal/handler/auth_*_oauth.go and related test files
+2. Update backend/internal/service/auth_*.go and tests
+3. Update backend/internal/server/routes/auth.go
+4. Update frontend/src/api/auth.ts
+5. Update frontend/src/views/auth/*CallbackView.vue and related tests
+
+## Evidence
+
+- Workflow detected from commit patterns
+- Frequency: ~3x per month
+- Files: backend/internal/handler/auth_*_oauth.go, backend/internal/handler/auth_*_oauth_test.go, backend/internal/service/auth_*.go
+
+---
+id: sub2api-workflow-add-or-update-payment-flow
+trigger: "when doing add or update payment flow"
+confidence: 0.6
+domain: workflow
+source: repo-analysis
+source_repo: https://github.com/lllyyysss77/sub2api
+---
+
+# Sub2api Workflow Add Or Update Payment Flow
+
+## Action
+
+Follow the add-or-update-payment-flow workflow:
+1. Update backend/internal/service/payment_*.go and tests
+2. Update backend/internal/handler/payment_*.go
+3. Update backend/ent/schema/payment_*.go and run codegen
+4. Add or update backend/migrations/*.sql for schema changes
+5. Update frontend/src/components/payment/*.vue and tests
+6. Update frontend/src/views/user/Payment*.vue and tests
+7. Update frontend/src/types/payment.ts
+
+## Evidence
+
+- Workflow detected from commit patterns
+- Frequency: ~2x per month
+- Files: backend/internal/service/payment_*.go, backend/internal/service/payment_*_test.go, backend/internal/handler/payment_*.go
+
+---
+id: sub2api-workflow-add-or-update-spec-and-implementation-plan
+trigger: "when doing add or update spec and implementation plan"
+confidence: 0.6
+domain: workflow
+source: repo-analysis
+source_repo: https://github.com/lllyyysss77/sub2api
+---
+
+# Sub2api Workflow Add Or Update Spec And Implementation Plan
+
+## Action
+
+Follow the add-or-update-spec-and-implementation-plan workflow:
+1. Add or update docs/superpowers/specs/*.md
+2. Add or update docs/superpowers/plans/*.md
+3. Iterate on both spec and plan as design evolves
+
+## Evidence
+
+- Workflow detected from commit patterns
+- Frequency: ~2x per month
+- Files: docs/superpowers/specs/*.md, docs/superpowers/plans/*.md
+
+---
+id: sub2api-instinct-file-naming
+trigger: "When creating or renaming files in the codebase"
+confidence: 0.9
+domain: code-style
+source: repo-analysis
+source_repo: lllyyysss77/sub2api
+---
+
+# Sub2api Instinct File Naming
+
+## Action
+
+Use snake_case for file names
+
+## Evidence
+
+- Pattern in namingConventions.files: snake_case
+- Observed in backend/ent/authidentity.go
+
+---
+id: sub2api-instinct-function-naming
+trigger: "When defining a new function"
+confidence: 0.9
+domain: code-style
+source: repo-analysis
+source_repo: lllyyysss77/sub2api
+---
+
+# Sub2api Instinct Function Naming
+
+## Action
+
+Use camelCase for function names
+
+## Evidence
+
+- Pattern in namingConventions.functions: camelCase
+
+---
+id: sub2api-instinct-class-naming
+trigger: "When defining a new class or struct"
+confidence: 0.9
+domain: code-style
+source: repo-analysis
+source_repo: lllyyysss77/sub2api
+---
+
+# Sub2api Instinct Class Naming
+
+## Action
+
+Use PascalCase for class/struct names
+
+## Evidence
+
+- Pattern in namingConventions.classes: PascalCase
+
+---
+id: sub2api-instinct-constant-naming
+trigger: "When declaring a constant"
+confidence: 0.9
+domain: code-style
+source: repo-analysis
+source_repo: lllyyysss77/sub2api
+---
+
+# Sub2api Instinct Constant Naming
+
+## Action
+
+Use SCREAMING_SNAKE_CASE for constant names
+
+## Evidence
+
+- Pattern in namingConventions.constants: SCREAMING_SNAKE_CASE
+
+---
+id: sub2api-instinct-import-style
+trigger: "When importing modules"
+confidence: 0.8
+domain: code-style
+source: repo-analysis
+source_repo: lllyyysss77/sub2api
+---
+
+# Sub2api Instinct Import Style
+
+## Action
+
+Use mixed import style (default and named imports as appropriate)
+
+## Evidence
+
+- Pattern in importStyle: mixed
+
+---
+id: sub2api-instinct-export-style
+trigger: "When exporting modules or functions"
+confidence: 0.8
+domain: code-style
+source: repo-analysis
+source_repo: lllyyysss77/sub2api
+---
+
+# Sub2api Instinct Export Style
+
+## Action
+
+Use named exports
+
+## Evidence
+
+- Pattern in exportStyle: named
+
+---
+id: sub2api-instinct-test-file-pattern
+trigger: "When creating a test file"
+confidence: 0.9
+domain: testing
+source: repo-analysis
+source_repo: lllyyysss77/sub2api
+---
+
+# Sub2api Instinct Test File Pattern
+
+## Action
+
+Name the file with a .spec.ts suffix
+
+## Evidence
+
+- Pattern in testing.filePattern: *.spec.ts
+- Seen in frontend/src/components/**/*.spec.ts
+
+---
+id: sub2api-instinct-test-framework
+trigger: "When writing tests for frontend TypeScript code"
+confidence: 0.9
+domain: testing
+source: repo-analysis
+source_repo: lllyyysss77/sub2api
+---
+
+# Sub2api Instinct Test Framework
+
+## Action
+
+Use vitest as the test framework
+
+## Evidence
+
+- Pattern in testing.framework: vitest
+
+---
+id: sub2api-instinct-mocking-style
+trigger: "When mocking dependencies in tests"
+confidence: 0.9
+domain: testing
+source: repo-analysis
+source_repo: lllyyysss77/sub2api
+---
+
+# Sub2api Instinct Mocking Style
+
+## Action
+
+Use vi.mock for mocking
+
+## Evidence
+
+- Pattern in testing.mockingStyle: vi.mock
+
+---
+id: sub2api-instinct-test-types
+trigger: "When planning test coverage"
+confidence: 0.85
+domain: testing
+source: repo-analysis
+source_repo: lllyyysss77/sub2api
+---
+
+# Sub2api Instinct Test Types
+
+## Action
+
+Write both unit and integration tests
+
+## Evidence
+
+- Pattern in testing.testTypes: unit, integration
+
+---
+id: sub2api-instinct-commit-format
+trigger: "When writing a commit message"
+confidence: 0.95
+domain: git
+source: repo-analysis
+source_repo: lllyyysss77/sub2api
+---
+
+# Sub2api Instinct Commit Format
+
+## Action
+
+Use conventional commit prefixes: fix, feat, refactor, docs, test
+
+## Evidence
+
+- Pattern in commits.prefixes
+- Seen in commit: docs: add auth identity payment foundation design spec
+- Seen in commit: fix: harden oidc callback security
+
+---
+id: sub2api-instinct-commit-length
+trigger: "When composing a commit message"
+confidence: 0.8
+domain: git
+source: repo-analysis
+source_repo: lllyyysss77/sub2api
+---
+
+# Sub2api Instinct Commit Length
+
+## Action
+
+Keep the commit message concise (around 50 characters)
+
+## Evidence
+
+- Pattern in commits.averageLength: 50
+
+---
+id: sub2api-instinct-add-or-modify-database-table-with-migration
+trigger: "When introducing a new entity or modifying an existing one in the database"
+confidence: 0.95
+domain: workflow
+source: repo-analysis
+source_repo: lllyyysss77/sub2api
+---
+
+# Sub2api Instinct Add Or Modify Database Table With Migration
+
+## Action
+
+Edit ent/schema/*.go, run ent codegen, update backend/ent/*, add/update backend/migrations/*.sql, update backend/ent/migrate/schema.go, update backend/internal/service/* and backend/internal/repository/* as needed
+
+## Evidence
+
+- Workflow: add-or-modify-database-table-with-migration
+- Seen in files: backend/ent/schema/*.go, backend/migrations/*.sql
+
+---
+id: sub2api-instinct-add-or-update-api-endpoint
+trigger: "When exposing new backend functionality via HTTP API"
+confidence: 0.92
+domain: workflow
+source: repo-analysis
+source_repo: lllyyysss77/sub2api
+---
+
+# Sub2api Instinct Add Or Update Api Endpoint
+
+## Action
+
+Add/update backend/internal/handler/*, update backend/internal/server/routes/*.go, edit/add backend/internal/handler/dto/*.go, write/update backend/internal/handler/*_test.go
+
+## Evidence
+
+- Workflow: add-or-update-api-endpoint
+- Seen in files: backend/internal/handler/*.go, backend/internal/server/routes/*.go
+
+---
+id: sub2api-instinct-feature-development-fullstack
+trigger: "When delivering a new user-facing capability end-to-end"
+confidence: 0.9
+domain: workflow
+source: repo-analysis
+source_repo: lllyyysss77/sub2api
+---
+
+# Sub2api Instinct Feature Development Fullstack
+
+## Action
+
+Implement backend handler/service/repository, update/add API endpoints and tests, update frontend src/api/*.ts, implement/update Vue components and views, add/update frontend tests, update types and i18n as needed
+
+## Evidence
+
+- Workflow: feature-development-fullstack
+- Seen in files: backend/internal/handler/*.go, frontend/src/components/**/*.vue
+
+---
+id: sub2api-instinct-add-or-update-frontend-ui-flow
+trigger: "When adding or updating a user-facing UI flow or panel"
+confidence: 0.88
+domain: workflow
+source: repo-analysis
+source_repo: lllyyysss77/sub2api
+---
+
+# Sub2api Instinct Add Or Update Frontend Ui Flow
+
+## Action
+
+Add/update frontend/src/components/**/*.vue and frontend/src/views/**/*.vue, update router/index.ts if navigation changes, update types and i18n as needed, write/update .spec.ts tests
+
+## Evidence
+
+- Workflow: add-or-update-frontend-ui-flow
+- Seen in files: frontend/src/components/**/*.vue, frontend/src/views/**/*.vue
+
+---
+id: sub2api-instinct-add-or-update-admin-dashboard-view
+trigger: "When exposing new admin functionality or reports"
+confidence: 0.85
+domain: workflow
+source: repo-analysis
+source_repo: lllyyysss77/sub2api
+---
+
+# Sub2api Instinct Add Or Update Admin Dashboard View
+
+## Action
+
+Add/update frontend/src/views/admin/*.vue, frontend/src/api/admin/*.ts, frontend/src/views/admin/__tests__/*.spec.ts, backend/internal/handler/admin/*.go, update backend/internal/server/routes/admin.go
+
+## Evidence
+
+- Workflow: add-or-update-admin-dashboard-view
+- Seen in files: frontend/src/views/admin/*.vue, backend/internal/handler/admin/*.go
+
+---
+id: sub2api-instinct-add-or-update-auth-oauth-flow
+trigger: "When adding or refining OAuth login, binding, or callback flows"
+confidence: 0.9
+domain: workflow
+source: repo-analysis
+source_repo: lllyyysss77/sub2api
+---
+
+# Sub2api Instinct Add Or Update Auth Oauth Flow
+
+## Action
+
+Update backend/internal/handler/auth_*_oauth.go and tests, backend/internal/service/auth_*.go and tests, backend/internal/server/routes/auth.go, frontend/src/api/auth.ts, frontend/src/views/auth/*CallbackView.vue and related tests
+
+## Evidence
+
+- Workflow: add-or-update-auth-oauth-flow
+- Seen in files: backend/internal/handler/auth_*_oauth.go, frontend/src/views/auth/*CallbackView.vue
+
+---
+id: sub2api-instinct-add-or-update-payment-flow
+trigger: "When supporting new payment providers, flows, or UI"
+confidence: 0.87
+domain: workflow
+source: repo-analysis
+source_repo: lllyyysss77/sub2api
+---
+
+# Sub2api Instinct Add Or Update Payment Flow
+
+## Action
+
+Update backend/internal/service/payment_*.go and tests, backend/internal/handler/payment_*.go, backend/ent/schema/payment_*.go and run codegen, add/update backend/migrations/*.sql, update frontend/src/components/payment/*.vue and tests, frontend/src/views/user/Payment*.vue and tests, frontend/src/types/payment.ts
+
+## Evidence
+
+- Workflow: add-or-update-payment-flow
+- Seen in files: backend/internal/service/payment_*.go, frontend/src/components/payment/*.vue
+
+---
+id: sub2api-instinct-add-or-update-spec-and-implementation-plan
+trigger: "When documenting and planning a new major system or feature"
+confidence: 0.85
+domain: workflow
+source: repo-analysis
+source_repo: lllyyysss77/sub2api
+---
+
+# Sub2api Instinct Add Or Update Spec And Implementation Plan
+
+## Action
+
+Add/update docs/superpowers/specs/*.md and docs/superpowers/plans/*.md, iterate as design evolves
+
+## Evidence
+
+- Workflow: add-or-update-spec-and-implementation-plan
+- Seen in files: docs/superpowers/specs/*.md, docs/superpowers/plans/*.md
+
